@@ -13,9 +13,14 @@ export class HomeComponent {
   productData: any;
   constructor(private coreService: CoreService) {}
   ngOnInit(): void {
-    this.coreService.getProduct().subscribe((data) => {
-      this.productData = data;
-      console.log(data);
+    this.coreService.getProduct().subscribe({
+      next: (data) => {
+        this.productData = data;
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      },
     });
   }
 }

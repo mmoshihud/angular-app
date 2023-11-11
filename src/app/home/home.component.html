@@ -1,12 +1,14 @@
 <h2>Home Works!</h2>
 <div>
   <h1>Welcome to the Home Component</h1>
-  <div *ngIf="productData && productData.length > 0">
-    <h2>Product Information</h2>
-    <div *ngFor="let product of productData">
-      <p>Product Title: {{ product.title }}</p>
-      <p>Product Price: {{ product.price }}</p>
-      <hr />
-    </div>
+  <h2>Product Information</h2>
+  @for (product of productData; track product.id) {
+  <div>
+    <p>Product Title: {{ product.title }}</p>
+    <p>Product Price: {{ product.price }}</p>
+    <hr />
   </div>
+  } @empty {
+  <li>There are no items.</li>
+  }
 </div>
