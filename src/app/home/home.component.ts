@@ -10,9 +10,11 @@ import { CoreService } from '../services/api/core.service';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  productData: any;
   constructor(private coreService: CoreService) {}
   ngOnInit(): void {
     this.coreService.getProduct().subscribe((data) => {
+      this.productData = data;
       console.log(data);
     });
   }
